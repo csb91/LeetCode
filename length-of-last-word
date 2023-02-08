@@ -1,0 +1,14 @@
+function lengthOfLastWord(s: string): number {
+  let count: number = 0;
+  let trimS: string = s.trim()
+  
+  for (let i = trimS.length - 1; i >= 0; i--) {
+      if (trimS[i] !== ' ') {
+          count++;
+      } else {
+          return count;
+      }
+  }
+
+  return count;
+};
