@@ -1,0 +1,16 @@
+function maxProfit(prices: number[]): number {
+    let maxP: number = 0;
+    let lPoint: number = 0;
+    let rPoint: number = 1; 
+
+    while (rPoint < prices.length) {
+        if (prices[lPoint] < prices[rPoint]) {
+          maxP = Math.max(maxP, prices[rPoint] - prices[lPoint]);
+        } else {
+            lPoint = rPoint;
+        }
+        rPoint++;
+    }
+
+    return maxP;
+};
