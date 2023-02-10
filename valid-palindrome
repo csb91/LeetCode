@@ -1,0 +1,20 @@
+function isPalindrome(s: string): boolean {
+  let characters: string = '';
+  for (let i = 0; i < s.length; i++) {
+    if ((s[i].toLowerCase().charCodeAt(0) > 96 && s[i].toLowerCase().charCodeAt(0) < 122) || (s[i].charCodeAt(0) > 47 && s[i].charCodeAt(0) < 58)) {
+        characters += s[i].toLowerCase()
+    }
+  }
+  
+  let start = 0
+  let end = characters.length - 1;
+  while (start < end) {
+      if (characters[start] !== characters[end]) {
+          return false;
+      }
+      start++;
+      end--;
+  }
+  
+  return true;
+};
