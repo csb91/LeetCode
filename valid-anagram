@@ -1,0 +1,30 @@
+function isAnagram(s: string, t: string): boolean {
+  let letterCount1: {[key: string]: number} = {};
+  let letterCount2: {[key: string]: number} = {};
+
+  if (s.length !== t.length) {
+      return false;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+      if (letterCount1[s[i]] === undefined) {
+          letterCount1[s[i]] = 1;
+      } else {
+          letterCount1[s[i]]++;
+      }
+
+      if (letterCount2[t[i]] === undefined) {
+          letterCount2[t[i]] = 1;
+      } else {
+          letterCount2[t[i]]++;
+      }
+  }
+
+  for (let keys in letterCount1) {
+      if (letterCount1[keys] !== letterCount2[keys]) {
+          return false;
+      }
+  }
+
+  return true;
+ };
