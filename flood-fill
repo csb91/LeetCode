@@ -1,0 +1,30 @@
+function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
+  const rows = image.length;
+  const cols = image[0].length;
+  const oldColor = image[sr][sc];
+
+  if (oldColor === color) {
+    return image;
+};
+
+function dfs(row: number, col: number) {
+    if (row < 0 || row >= rows || col < 0 || col >= cols) {
+      return;
+    }
+
+    if (image[row][col] !== oldColor) {
+      return;
+    }
+
+    image[row][col] = color;
+
+    dfs(row - 1, col);
+    dfs(row + 1, col);
+    dfs(row, col - 1);
+    dfs(row, col + 1);
+  }
+
+  dfs(sr, sc);
+
+  return image;
+}
